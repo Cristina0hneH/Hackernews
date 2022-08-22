@@ -1,2 +1,0 @@
-# hackernews
-Hacker news project
