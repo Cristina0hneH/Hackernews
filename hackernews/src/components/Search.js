@@ -10,6 +10,7 @@ export default function Search(){
 
     return (
         <form>
+            <h1>Welcome to our search bar</h1>
             <label>Want some news?</label>
             <input type="text" placeholder="Search" onChange={handleChange}/>
             {HACKERNEWS.data.hits.filter((val) => {
