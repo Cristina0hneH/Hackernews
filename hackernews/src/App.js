@@ -1,10 +1,11 @@
 import './App.css';
-import hackernews from './data/hackernews.json'
+import Search from './components/Search';
+import DATA from './data/hackernews.json';
 
 function App() {
   return (
     <div className="App">
-
+      <Search />
     </div>
   );
 }
