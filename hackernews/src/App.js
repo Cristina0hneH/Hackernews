@@ -1,6 +1,6 @@
 import './App.css';
 import Search from './components/Search';
-import hackernews from './data/hackernews.json';
+import DATA from './data/hackernews.json';
 
 function App() {
   return (
