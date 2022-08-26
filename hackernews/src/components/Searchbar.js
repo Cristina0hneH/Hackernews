@@ -1,11 +1,13 @@
-
+import './SearchBar.css';
 
 const Searchbar = ({handleChange, handleClick, value}) =>{
 
     return (
         <form onSubmit={handleClick}>
-            <input type="text" onChange={handleChange} value={value} />
-            <button >Search</button>
+            <div className="search">
+            <input className="searchInput" type="text" onChange={handleChange} value={value} />
+            <button className="searchButton">Search</button>
+            </div>
         </form>
     )
 }   

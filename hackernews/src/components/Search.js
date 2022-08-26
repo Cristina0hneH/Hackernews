@@ -3,6 +3,7 @@ import axios from 'axios';
 import Searchbar from "./Searchbar";
 import List from "./List";
 import Loading from "./Loading";
+import NavBar from "./NavBar";
 
 export const Search = () => {
 
@@ -24,7 +25,7 @@ export const Search = () => {
     if(searchWord){
 
         setIsLoading(true);
-        
+
         axios(URL)
         
         .then((res) => {setData(res.data.hits);
@@ -56,7 +57,8 @@ export const Search = () => {
 
 return (
     <div className="App">
-        <h1>Welcome to React searchbar</h1>
+        <NavBar />
+       
         <Searchbar handleClick={handleClick} handleChange={handleChange} value={value}/>
        
         {/*if(error=true) show error.message. Else give empty string*/}

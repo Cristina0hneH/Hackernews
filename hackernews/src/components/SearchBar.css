@@ -1,0 +1,13 @@
+.searchButton{
+   border-radius: 10%;
+   background-color: rgba(219, 138, 118, 100); 
+   color:white;   
+
+}
+.search{
+    margin:1.5rem;
+    padding-left:10px;
+}
+.searchInput{
+    margin-right:10px;
+}

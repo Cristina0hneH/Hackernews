@@ -1,0 +1,17 @@
+.navbar{
+    display: flex;
+    background-color: #db8a76 ;
+    color:white;
+    align-content: center;
+    justify-content: space-between;
+
+    
+}
+.navList{
+    list-style: none;
+    display: flex;
+}
+.navLogos{
+    display:flex;
+    justify-content: space-between;
+}
