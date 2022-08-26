@@ -3,9 +3,9 @@
 const Searchbar = ({handleChange, handleClick, value}) =>{
 
     return (
-        <form >
+        <form onSubmit={handleClick}>
             <input type="text" onChange={handleChange} value={value} />
-            <button onClick={handleClick}>Search</button>
+            <button >Search</button>
         </form>
     )
 }   

@@ -2,40 +2,55 @@ import React, {useState, useEffect} from "react";
 import axios from 'axios';
 import Searchbar from "./Searchbar";
 import List from "./List";
+import Loading from "./Loading";
 
 export const Search = () => {
 
     
     // const URL = 'http://localhost:8000/data'
-    const [searchWord, setSearchWord] = useState('react');
+    const [searchWord, setSearchWord] = useState('');
     const [error, setError] = useState([])
     const [value, setValue] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [data, setData] = useState({hits : [] });
+    const [data, setData] = useState(false);
     
-    const URL = `http://hn.algolia.com/api/v1/search?query=${searchWord}`
-//   const URL = `http://hn.algolia.com/api/v1/search?query=${searchWord}`
-  
-  useEffect(() =>{
+    
+    
+    
+    useEffect(() =>{
+        
+        const URL = `http://hn.algolia.com/api/v1/search?query=${searchWord}`
+        
+    if(searchWord){
 
-    axios(URL)
-        .then((res) => setData(res.data.hits))
+        setIsLoading(true);
+        
+        axios(URL)
+        
+        .then((res) => {setData(res.data.hits);
+        setIsLoading(false) })
+        
         .catch((err) =>{
             setError(err);
-        })
-    
+            setIsLoading(false);
+            })
+        
+    }
   },[searchWord])
+
 
 
 
     const handleChange = (e)=>{
     setValue(e.target.value)
-    console.log(value)
+    
     } 
 
     const handleClick = (e)=>{
     e.preventDefault();
+
     setSearchWord(value);
+    console.log(searchWord)
     } 
 
 
@@ -46,6 +61,7 @@ return (
        
         {/*if(error=true) show error.message. Else give empty string*/}
         {error ? <p>{error.message}</p> : ''}
-        <div>{data !== [] && data.title}</div>
+        {isLoading ? <Loading /> : <div>{ data && <List searchWord={searchWord} data={data}/> }</div>
+        }
     </div>
 )}
